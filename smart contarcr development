@@ -1,0 +1,18 @@
+pragma solidity ^0.6.0;
+
+contract SimpleContract {
+    uint public balance;
+
+    function SimpleContract() public {
+        balance = 100;
+    }
+
+    function addFunds(uint amount) public {
+        balance += amount;
+    }
+
+    function withdrawFunds(uint amount) public {
+        require(amount <= balance, "Insufficient funds.");
+        balance -= amount;
+    }
+}
